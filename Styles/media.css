@@ -1,0 +1,111 @@
+@media screen and (max-width: 992px) {
+    .location-date-container .location h4{
+        font-size: 1.1875rem !important;
+    }
+    .location-date-container .location i{
+        font-size: 1.1875rem !important;
+    }
+    .weather-info .current-date{
+        font-size: 1.125rem !important;
+    }
+    .weather-summary-container .weather-summary-info h3{
+        font-size: 1.375rem !important;
+    }
+    .forecast-items-container{
+        gap: .3rem !important;
+    }
+    .forecast-items-container .forecast-item h5{
+        font-size: .95rem !important;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .location-date-container .location h4{
+        font-size: 1.1rem !important;
+    }
+    .location-date-container .location i{
+        font-size: 1.1rem !important;
+    }
+    .forecast-items-container .forecast-item h5{
+        font-size: .95rem !important;
+    }
+}
+
+@media screen and (max-width: 457px) {
+    .location-date-container .location h4{
+        font-size: 1.2rem !important;
+    }
+    .location-date-container .location i{
+        font-size: 2rem !important;
+    }
+    .weather-info .current-date{
+        font-size: 1.2rem !important;
+        text-align: end;
+    }
+    .forecast-items-container{
+        gap: .3rem !important;
+    }
+    .forecast-items-container .forecast-item h5{
+        font-size: .85rem !important;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .location-date-container .location h4{
+        font-size: 1.1rem !important;
+    }
+    .weather-info .current-date{
+        font-size: 1.1rem !important;
+    }
+    .weather-summary-container .weather-summary-info h3{
+        font-size: 1.2rem !important;
+    }
+    .weather-conditions-container .condition-item{
+        gap: 10px !important;
+    }
+    .weather-conditions-container .condition-item i{
+        font-size: 2.2rem !important;
+    }
+    .weather-conditions-container .condition-item .condition-info h5{
+        font-size: 1rem !important;
+    }
+    .forecast-items-container .forecast-item h5{
+        font-size: .7rem !important;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .forecast-items-container{
+        gap: .3rem !important;
+    }
+    .forecast-items-container .forecast-item{
+        min-width: 85px !important;
+    }
+    .forecast-items-container .forecast-item h5{
+        font-size: .71rem !important;
+    }
+}
+
+@media (max-width: 1024px) and (min-height: 1100px) {
+    .box{
+        min-height: 43.75rem !important;
+        padding: 2rem !important;
+    }
+    .weather-info {
+        justify-content: space-between !important;
+        gap: 4.5rem !important;
+    }
+    .weather-summary-container .weather-summary-img{
+        width: 180px !important;
+        height: 180px !important;
+    }
+    .weather-conditions-container .condition-item{
+        gap: 10px !important;
+    }
+    .weather-conditions-container .condition-item i{
+        font-size: 3rem !important;
+    }
+    .weather-conditions-container .condition-item .condition-info h5{
+        font-size: 1.5rem !important;
+    }
+}
