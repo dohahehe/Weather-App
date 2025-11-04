@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="./Styles/bootstrap.min.css">
+    <!--BOOTSRAP ICONS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">     
+    <!--FONTAWESOME-->
+    <link rel="stylesheet" href="./Styles/all.min.css">
+    <!--MEDIA QUERIES-->
+    <link rel="stylesheet" href="./Styles/media.css">
+    <!--MAIN STYLE-->
+    <link rel="stylesheet" href="./Styles/main.css">
+</head>
+<body>
+    <main class="container main-container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row d-flex justify-content-center align-items-center w-100">
+            <div class="box col-md-8">
+                <header class="input-container">
+                    <input id="city-input" type="text" class="city-input" placeholder="Search City">
+                    <button class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </header>
+
+                <!--WEATHER INFO SECTION-->
+
+                <section class="weather-info d-none">
+                    <div class="location-date-container">
+                        <div class="location">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4 class="country-txts">Jakarta</h4>    
+                        </div>
+                        <h5 class="current-date regular-txt">
+                            Monday, 21 August 2023
+                        </h5>
+                    </div>
+                    <div class="weather-summary-container">
+                        <img src="assets/weather/clouds.svg" class="weather-summary-img">
+                        <div class="weather-summary-info">
+                            <h1 class="temp-text">29 °C</h1>
+                            <h3 class="condition-txt regular-txt">Clouds</h3>
+                        </div>
+                    </div>
+                    <div class="weather-conditions-container">
+                        <div class="condition-item">
+                            <i class="bi bi-droplet"></i>
+                            <div class="condition-info">
+                                <h5 class="regular-txt">Humidity</h5>
+                                <h5 class="humidity-value-txt">55%</h5>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <i class="bi bi-wind"></i>
+                            <div class="condition-info">
+                                <h5 class="regular-txt">Wind Speed</h5>
+                                <h5 class="wind-value-txt">2 Mph</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast-items-container row gap-3">
+                        <div class="forecast-item col-3">
+                            <h5 class="forecast-item-date regular-txt">05 Aug</h5>
+                            <img src="./assets/weather/thunderstorm.svg" class="forecast-item-img">
+                            <h5 class="forecast-item-temp">29 °C</h5>
+                        </div>
+                        <div class="forecast-item col-3">
+                            <h5 class="forecast-item-date regular-txt">05 Aug</h5>
+                            <img src="./assets/weather/thunderstorm.svg" class="forecast-item-img">
+                            <h5 class="forecast-item-temp">29 °C</h5>
+                        </div>
+                        <div class="forecast-item col-3">
+                            <h5 class="forecast-item-date regular-txt">05 Aug</h5>
+                            <img src="./assets/weather/thunderstorm.svg" class="forecast-item-img">
+                            <h5 class="forecast-item-temp">29 °C</h5>
+                        </div>
+                        <div class="forecast-item col-3">
+                            <h5 class="forecast-item-date regular-txt">05 Aug</h5>
+                            <img src="./assets/weather/thunderstorm.svg" class="forecast-item-img">
+                            <h5 class="forecast-item-temp">29 °C</h5>
+                        </div>
+                    </div>
+                </section>
+
+                <!--SEARCH MESSAGE SECTION-->
+                    <section class="search-city section-message">
+                        <img src="./assets/message/search-city.png" alt="woman searching">
+                         <h1>Search City</h1>
+                         <h4 class="regular-txt text-center">
+                            Find out the weather conditions in your city!
+                         </h4>
+                    </section>
+
+                    <section class="not-found section-message d-none">
+                        <img src="./assets/message/not-found.png" alt="404 error">
+                         <h4 class="regular-txt text-center">
+                            Something went wrong!
+                         </h4>
+                    </section>
+
+                <!--LOADER-->
+                    <section class="loader section-message d-none">
+                        <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <h4 class="regular-txt text-center mt-3">Loading weather data...</h4>
+                    </section>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!--BOOTSTRAP-->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!--BOOTSRAP ICONS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!--MAIN SCRIPT-->
+    <script src="./js/main.js"></script>
+</body>
+</html>
