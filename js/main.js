@@ -37,7 +37,7 @@ cityInput.addEventListener('keydown', (event) => {
 // =============== Fetch current data ===============
 
 async function fetchCurrentData(endPoint, city){
-     const apiUrl = `http://api.weatherapi.com/v1/${endPoint}.json?key=${apiKey}&q=${city}&aqi=yes`;
+     const apiUrl = `https://api.weatherapi.com/v1/${endPoint}.json?key=${apiKey}&q=${city}&aqi=yes`;
     const response = await fetch(apiUrl);
     
     if (!response.ok) {
@@ -102,7 +102,7 @@ function showDisplaySection(sectionToShow){
 // =============== Fetch forecast data =============
 
 async function fetchForecastData(endPoint, city, days){
-     const apiUrl = `http://api.weatherapi.com/v1/${endPoint}.json?key=${apiKey}&q=${city}&days=${days}&aqi=no&alerts=no`;
+     const apiUrl = `https://api.weatherapi.com/v1/${endPoint}.json?key=${apiKey}&q=${city}&days=${days}&aqi=no&alerts=no`;
     const response = await fetch(apiUrl);
     
     if (!response.ok) {
@@ -206,4 +206,5 @@ function getWeatherIcon(code){
     };
     
     return weatherIcons[code] || 'atmosphere.svg'; // Default
+
 }
