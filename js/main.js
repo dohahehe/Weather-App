@@ -44,21 +44,35 @@ async function getUserLocation() {
     try {
         showDisplaySection(loaderSection);
         
-        const locationData = await fetch('https://ip-api.com/json/').then(res => res.json());
-        // console.log(locationData);
-        
-        
-        if (locationData.status === 'success') {
-            const city = locationData.city || locationData.regionName;
-            // console.log(city);
-            
-            updateWeatherInfo(city);
-        } else {
-            throw new Error('Could not get your location');
+        // Use browser's built-in geolocation API
+        if (!navigator.geolocation) {
+            throw new Error('Geolocation is not supported by this browser');
         }
+
+        // Get current position with timeout
+        const position = await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject, {
+                timeout: 10000,
+                enableHighAccuracy: false
+            });
+        });
+
+        const { latitude, longitude } = position.coords;
+        
+        // Use coordinates to get weather data
+        updateWeatherInfo(`${latitude},${longitude}`);
+        
     } catch (error) {
         console.error('Location error:', error);
-        showDisplaySection(notFoundSection);
+        
+        // Handle different types of errors
+        if (error.code === error.PERMISSION_DENIED) {
+            showDisplaySection(locationPermissionSection);
+        } else if (error.code === error.TIMEOUT) {
+            showDisplaySection(notFoundSection);
+        } else {
+            showDisplaySection(notFoundSection);
+        }
     }
 }
 
@@ -236,5 +250,6 @@ function getWeatherIcon(code){
     
     return weatherIcons[code] || 'atmosphere.svg'; // Default
 }
+
 
 
