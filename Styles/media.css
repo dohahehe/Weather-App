@@ -72,6 +72,12 @@
     .forecast-items-container .forecast-item h5{
         font-size: .7rem !important;
     }
+    .section-message img{
+        width: 40% !important;
+    }
+    .section-message h4{
+        font-size: 1.1rem !important;
+    }
 }
 
 @media screen and (max-width: 375px) {
@@ -83,6 +89,10 @@
     }
     .forecast-items-container .forecast-item h5{
         font-size: .71rem !important;
+    }
+    .search-city .my-location-btn{
+        padding: 10px 20px !important; 
+        font-size: .9rem !important;
     }
 }
 
