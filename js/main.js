@@ -44,7 +44,7 @@ async function getUserLocation() {
     try {
         showDisplaySection(loaderSection);
         
-        const locationData = await fetch('http://ip-api.com/json/').then(res => res.json());
+        const locationData = await fetch('https://ip-api.com/json/').then(res => res.json());
         // console.log(locationData);
         
         
@@ -236,3 +236,4 @@ function getWeatherIcon(code){
     
     return weatherIcons[code] || 'atmosphere.svg'; // Default
 }
+
