@@ -2,6 +2,8 @@
 
 const cityInput = document.querySelector('.city-input');
 const searchBtn = document.querySelector('.search-btn');
+const locationBtn = document.querySelector('.location-btn');
+const myLocationBtn = document.querySelector('.my-location-btn');
 const loaderSection = document.querySelector('.loader');
 const notFoundSection = document.querySelector('.not-found');
 const searchCitySection = document.querySelector('.search-city');
@@ -33,11 +35,37 @@ cityInput.addEventListener('keydown', (event) => {
         cityInput.blur();
     }   
 });
+locationBtn.addEventListener('click', getUserLocation);
+myLocationBtn.addEventListener('click', getUserLocation);
+
+// =============== Get user location ===============
+
+async function getUserLocation() {
+    try {
+        showDisplaySection(loaderSection);
+        
+        const locationData = await fetch('http://ip-api.com/json/').then(res => res.json());
+        // console.log(locationData);
+        
+        
+        if (locationData.status === 'success') {
+            const city = locationData.city || locationData.regionName;
+            // console.log(city);
+            
+            updateWeatherInfo(city);
+        } else {
+            throw new Error('Could not get your location');
+        }
+    } catch (error) {
+        console.error('Location error:', error);
+        showDisplaySection(notFoundSection);
+    }
+}
 
 // =============== Fetch current data ===============
 
 async function fetchCurrentData(endPoint, city){
-     const apiUrl = `https://api.weatherapi.com/v1/${endPoint}.json?key=${apiKey}&q=${city}&aqi=yes`;
+     const apiUrl = `http://api.weatherapi.com/v1/${endPoint}.json?key=${apiKey}&q=${city}&aqi=yes`;
     const response = await fetch(apiUrl);
     
     if (!response.ok) {
@@ -102,7 +130,7 @@ function showDisplaySection(sectionToShow){
 // =============== Fetch forecast data =============
 
 async function fetchForecastData(endPoint, city, days){
-     const apiUrl = `https://api.weatherapi.com/v1/${endPoint}.json?key=${apiKey}&q=${city}&days=${days}&aqi=no&alerts=no`;
+     const apiUrl = `http://api.weatherapi.com/v1/${endPoint}.json?key=${apiKey}&q=${city}&days=${days}&aqi=no&alerts=no`;
     const response = await fetch(apiUrl);
     
     if (!response.ok) {
@@ -190,6 +218,7 @@ function getWeatherIcon(code){
         1186: 'rain.svg',
         1192: 'rain.svg',
         1240: 'rain.svg',
+        1183: 'rain.svg',
         
         // Snow
         1066: 'snow.svg',
@@ -206,5 +235,4 @@ function getWeatherIcon(code){
     };
     
     return weatherIcons[code] || 'atmosphere.svg'; // Default
-
 }
